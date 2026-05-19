@@ -1,15 +1,31 @@
 {
-  "name": "elysia-start-example",
-  "version": "1.0.50",
+  "name": "elysia-start-template",
+  "version": "0.1.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "drizzle:push": "bunx drizzle-kit push --config=src/config/drizzle.config.ts",
+    "drizzle:generate": "bunx drizzle-kit generate --config=src/config/drizzle.config.ts",
+    "drizzle:migrations": "bunx drizzle-kit migrate --config=src/config/drizzle.config.ts",
+    "drizzle:seed": "bun src/index.ts --config=src/config/drizzle.config.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysia/openapi": "^1.4.15",
+    "better-auth": "^1.6.11",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "drizzle-typebox": "^0.3.3",
+    "elysia": "latest",
+    "nanoid": "^5.1.11",
+    "pg": "^8.21.0"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/pg": "^8.20.0",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.31.10"
   },
-  "module": "src/index.js"
+  "module": "src/index.js",
+  "overrides": {
+    "@sinclair/typebox": "0.32.4"
+  }
 }
