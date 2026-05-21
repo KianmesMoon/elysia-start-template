@@ -1,13 +1,6 @@
 import { nanoid } from "@/utils/security";
-import { config } from "dotenv";
-import { drizzle } from "drizzle-orm/node-postgres";
+import { db } from "./client";
 import { usersTable } from "./schema";
-
-config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
-const db = drizzle(process.env.DATABASE_URL!);
 
 async function main() {
   const user: typeof usersTable.$inferInsert = {

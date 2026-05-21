@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["bunx", "codepaths", "paralleldrive", "typebox", "vercel"]
+  "cSpell.words": ["bunx", "codepaths", "oxfmt", "oxlint", "paralleldrive", "typebox", "vercel"],
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true
 }
