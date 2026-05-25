@@ -13,3 +13,7 @@ if (!DATABASE_URL) {
 const port = Number(process.env.PORT);
 
 export const PORT = Number.isNaN(port) ? 3000 : port;
+
+export const RESEND_API_KEY = process.env.RESEND_API_KEY;
+
+export const EMAIL_FROM = process.env.EMAIL_FROM;

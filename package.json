@@ -12,7 +12,7 @@
     "drizzle:push": "bunx drizzle-kit push --config=src/config/drizzle.config.ts",
     "drizzle:generate": "bunx drizzle-kit generate --config=src/config/drizzle.config.ts",
     "drizzle:migrations": "bunx drizzle-kit migrate --config=src/config/drizzle.config.ts",
-    "drizzle:seed": "bun src/index.ts --config=src/config/drizzle.config.ts",
+    "drizzle:reset": "bun src/db/reset.ts",
     "batter-auth:generate": "bunx auth@latest generate --output src/db/schema/auth.ts"
   },
   "dependencies": {
@@ -20,10 +20,11 @@
     "better-auth": "^1.6.11",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
+    "drizzle-seed": "^0.3.1",
     "drizzle-typebox": "^0.3.3",
     "elysia": "latest",
-    "nanoid": "^5.1.11",
-    "pg": "^8.21.0"
+    "pg": "^8.21.0",
+    "resend": "^6.12.3"
   },
   "devDependencies": {
     "@types/pg": "^8.20.0",
