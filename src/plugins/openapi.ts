@@ -54,8 +54,8 @@ export default openapi({
   documentation: {
     info: {
       version: "0.1.0",
-      title: "Elysia Start Example",
-      description: "The elysia start example API document",
+      title: "Elysia Start Template",
+      description: "The elysia start template API document",
     },
     components: await OpenAPI.components,
     paths: await OpenAPI.getPaths(),

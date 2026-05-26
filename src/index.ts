@@ -1,9 +1,9 @@
 import { Elysia } from "elysia";
-import { PORT } from "./config/env";
+import { ENV } from "./config/env";
 import { betterAuth } from "./plugins/better-auth";
 import openapi from "./plugins/openapi";
 
-const app = new Elysia().use(betterAuth).use(openapi).listen(PORT);
+const app = new Elysia().use(betterAuth).use(openapi).listen(ENV.PORT);
 
 console.log(
   `🦊 Elysia is running at http://${app.server?.hostname}:${app.server?.port}

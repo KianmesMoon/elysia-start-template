@@ -1,19 +1,16 @@
 import { config } from "dotenv";
+import z from "zod";
 
 config({
   path: `.env.${process.env.NODE_ENV || "development"}`,
 });
 
-export const DATABASE_URL = process.env.DATABASE_URL!;
-
-if (!DATABASE_URL) {
-  throw new Error("DATABASE_URL is missing");
-}
-
-const port = Number(process.env.PORT);
-
-export const PORT = Number.isNaN(port) ? 3000 : port;
-
-export const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-export const EMAIL_FROM = process.env.EMAIL_FROM;
+export const ENV = z
+  .object({
+    NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+    PORT: z.coerce.number().default(3000),
+    DATABASE_URL: z.url(),
+    RESEND_API_KEY: z.string().trim().min(1, "RESEND_API_KEY is required"),
+    EMAIL_FROM: z.string().trim().min(1, "EMAIL_FROM is required"),
+  })
+  .parse(process.env);
