@@ -1,3 +1,4 @@
+import { ENV } from "@/config/env";
 import openapi from "@elysia/openapi";
 import { auth } from "./better-auth";
 
@@ -51,6 +52,7 @@ export const OpenAPI = {
 } as const;
 
 export default openapi({
+  enabled: ENV.NODE_ENV === "production" ? false : true,
   documentation: {
     info: {
       version: "0.1.0",
