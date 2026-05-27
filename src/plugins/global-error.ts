@@ -1,7 +1,7 @@
 import { logger } from "@/lib/logger";
 import Elysia from "elysia";
 
-export const globalError = new Elysia().onError(({ code, error, path, set }) => {
+export const globalError = new Elysia().onError({ as: "global" }, ({ code, error, path, set }) => {
   if (code === "VALIDATION") {
     return;
   }
