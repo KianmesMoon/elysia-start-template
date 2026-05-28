@@ -1,6 +1,9 @@
 {
   "name": "elysia-start-template",
   "version": "0.1.0",
+  "description": "A template for quickly starting a elysia project for own use",
+  "license": "MIT",
+  "author": "Kianmes",
   "module": "src/index.js",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
