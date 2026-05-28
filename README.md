@@ -128,7 +128,3 @@ However, I am currently not actively accepting external pull requests for major 
 If you'd like to propose something significant, please open an issue first to discuss it before spending time on implementation.
 
 Thank you for understanding.
-
-## License
-
-MIT © Kianmes
