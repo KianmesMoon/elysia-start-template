@@ -1,16 +1,8 @@
 import { db } from "@/db/client";
-import Elysia, { InternalServerError, t } from "elysia";
-import { rateLimit } from "elysia-rate-limit";
-import { server } from "..";
+import { ServiceUnavailableError } from "@/plugins/global-error";
+import Elysia, { t } from "elysia";
 
 export const healthCheck = new Elysia({ name: "health-check", prefix: "/api/health" })
-  .use(
-    rateLimit({
-      scoping: "scoped",
-      max: 5,
-      injectServer: () => server,
-    }),
-  )
   .macro({
     openapiTag: {
       detail: {
@@ -44,15 +36,14 @@ export const healthCheck = new Elysia({ name: "health-check", prefix: "/api/heal
   )
   .get(
     "/database",
-    async ({ set }) => {
+    async () => {
       try {
         await db.execute("select 1");
         return {
           ok: true,
         };
       } catch {
-        set.status = 503;
-        throw new InternalServerError("Database crash");
+        throw new ServiceUnavailableError("Database crash");
       }
     },
     {
