@@ -1,5 +1,6 @@
-import { logger } from "@/lib/logger";
 import Elysia from "elysia";
+
+import logger from "@/lib/pino";
 
 export class ServiceUnavailableError extends Error {
   status = 503;
@@ -10,7 +11,7 @@ export class ServiceUnavailableError extends Error {
   }
 }
 
-export const globalError = new Elysia()
+const globalError = new Elysia()
   .error({
     ServiceUnavailableError,
   })
@@ -40,3 +41,5 @@ export const globalError = new Elysia()
       message,
     };
   });
+
+export default globalError;

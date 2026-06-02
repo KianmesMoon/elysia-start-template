@@ -1,7 +1,8 @@
-import { ENV } from "@/config/env";
 import pino from "pino";
 
-export const logger = pino({
+import ENV from "@/config/env";
+
+const logger = pino({
   level: ENV.NODE_ENV === "production" ? "error" : "debug",
   base: null,
   timestamp: pino.stdTimeFunctions.isoTime,
@@ -31,3 +32,5 @@ export const logger = pino({
           ],
         },
 });
+
+export default logger;

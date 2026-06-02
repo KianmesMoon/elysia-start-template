@@ -1,5 +1,7 @@
-import { ENV } from "@/config/env";
 import openapi from "@elysia/openapi";
+
+import ENV from "@/config/env";
+
 import { auth } from "./better-auth";
 
 const disabledRoutes = new Set([

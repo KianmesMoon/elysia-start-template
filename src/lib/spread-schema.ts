@@ -4,9 +4,8 @@
  */
 
 import { Kind, type TObject } from "@sinclair/typebox";
-import { BuildSchema, createInsertSchema, createSelectSchema } from "drizzle-typebox";
-
 import type { Table } from "drizzle-orm";
+import { BuildSchema, createInsertSchema, createSelectSchema } from "drizzle-typebox";
 
 type Spread<T extends TObject | Table, Mode extends "select" | "insert" | undefined> =
   T extends TObject<infer Fields>

@@ -1,8 +1,9 @@
-import { db } from "@/db/client";
-import { ServiceUnavailableError } from "@/plugins/global-error";
 import Elysia, { t } from "elysia";
 
-export const healthCheck = new Elysia({ name: "health-check", prefix: "/api/health" })
+import { db } from "@/db/client";
+import { ServiceUnavailableError } from "@/plugins/global-error";
+
+const healthCheck = new Elysia({ name: "health-check", prefix: "/api/health" })
   .macro({
     openapiTag: {
       detail: {
@@ -82,3 +83,5 @@ export const healthCheck = new Elysia({ name: "health-check", prefix: "/api/heal
       },
     },
   );
+
+export default healthCheck;

@@ -1,16 +1,23 @@
-import { db } from "@/db/client";
-import * as authSchema from "@/db/schema/auth";
-import { sendEmail } from "@/lib/email";
 import { betterAuth as _betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { openAPI } from "better-auth/plugins";
 import Elysia from "elysia";
+
+import { db } from "@/db/client";
+import * as authSchema from "@/db/schema/auth";
+import { sendEmail } from "@/lib/resend";
 
 export const auth = _betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: authSchema,
   }),
+
+  plugins: [openAPI()],
+
+  onAPIError: {
+    throw: true,
+  },
 
   emailAndPassword: {
     enabled: true,
@@ -25,8 +32,6 @@ export const auth = _betterAuth({
     },
   },
 
-  plugins: [openAPI()],
-
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
       await sendEmail({
@@ -40,4 +45,6 @@ export const auth = _betterAuth({
   },
 });
 
-export const betterAuth = new Elysia({ name: "better-auth" }).mount(auth.handler);
+const betterAuth = new Elysia({ name: "better-auth" }).mount(auth.handler);
+
+export default betterAuth;

@@ -1,6 +1,8 @@
-import { db } from "@/db/client";
 import Elysia from "elysia";
-import { healthCheck } from "../src/modules/health-check";
+
+import { db } from "@/db/client";
+
+import healthCheck from "../src/modules/health-check";
 
 export const app = new Elysia().use(healthCheck);
 

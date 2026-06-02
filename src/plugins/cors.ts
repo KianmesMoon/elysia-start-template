@@ -1,5 +1,6 @@
-import { ENV } from "@/config/env";
 import { cors } from "@elysia/cors";
+
+import ENV from "@/config/env";
 
 const origins = ENV.NODE_ENV === "production" ? [""] : ["http://localhost:3000"];
 

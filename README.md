@@ -44,9 +44,9 @@ docker compose up -d
 Copy the development environment example file and fill in the values you need:
 
 ```bash
-cp .env.example .env                              # Require
-cp .env.development.example .env.development      # Development require
-cp .env.test.example .env.test                    # Test require
+cp .env.example .env                              # Required
+cp .env.development.example .env.development      # Development required
+cp .env.test.example .env.test                    # Test required
 ```
 
 ### 4. Initialize the database
@@ -66,17 +66,17 @@ bun run dev
 ## Available Scripts
 
 ```bash
-bun run dev              # Start the development server
-bun run test             # Run tests
-bun run test:coverage    # Generate test coverage report
-bun run lint             # Check code quality
-bun run lint:fix         # Auto-fix lint issues
-bun run fmt              # Format code
-bun run fmt:check        # Check formatting
-bun run drizzle:push     # Push the database schema
-bun run drizzle:generate # Generate migration files
-bun run drizzle:migrations # Run migrations
-bun run drizzle:reset    # Reset database seed data
+bun run dev                     # Start the development server
+bun run test                    # Run tests
+bun run test:coverage           # Generate test coverage report
+bun run lint                    # Check code quality
+bun run lint:fix                # Auto-fix lint issues
+bun run fmt                     # Format code
+bun run fmt:check               # Check formatting
+bun run drizzle:push            # Push the database schema
+bun run drizzle:generate        # Generate migration files
+bun run drizzle:migrations      # Run migrations
+bun run drizzle:reset           # Reset database seed data
 ```
 
 ## Project Structure

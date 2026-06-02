@@ -1,5 +1,5 @@
-export * from "./schema/auth";
-import { user } from "./schema/auth";
+export * from "./auth";
+import { user } from "./auth";
 
 export const table = {
   user,
