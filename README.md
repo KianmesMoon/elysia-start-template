@@ -88,7 +88,6 @@ src/
   lib/           # Email, logging, and other utilities
   modules/       # API modules
   plugins/       # Middleware and plugins
-  utils/         # Shared utility functions
 test/            # Vitest tests
 ```
 

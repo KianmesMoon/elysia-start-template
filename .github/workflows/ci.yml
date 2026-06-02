@@ -10,7 +10,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:17
+        image: postgres:18
 
         env:
           POSTGRES_USER: postgres
@@ -30,6 +30,10 @@ jobs:
       NODE_ENV: test
 
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
+
+      BETTER_AUTH_SECRET: test
+
+      BETTER_AUTH_URL: http://localhost:3000
 
       RESEND_API_KEY: test
 
